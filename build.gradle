@@ -17,6 +17,9 @@ repositories {
 
     // Negative Games Repository
     maven { url 'https://repo.negative.games/repository/maven-public/' }
+
+    // JitPack
+    maven { url 'https://jitpack.io' }
 }
 
 dependencies {
@@ -29,6 +32,9 @@ dependencies {
 
     // JDA
     implementation("net.dv8tion:JDA:5.0.0-beta.6")
+
+    // Simple YML
+    implementation("me.carleslc.Simple-YAML:Simple-Yaml:1.8.3")
 
     // Framework / Backend
     implementation("games.negative.framework:discord-framework:1.0.0-ALPHA-9")
