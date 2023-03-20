@@ -12,10 +12,12 @@ public class Main {
     public static void main(String[] args) {
         String token;
         TokenConfig config;
-        
-        File file = new File("token.conf");
+
+        File file = new File("config", "token.conf");
         Gson gson = new GsonBuilder().setPrettyPrinting().serializeNulls().create();
         if (!file.exists()) {
+            file.getParentFile().mkdirs();
+            
             // File exists, which means the token is invalid
             try {
                 file.createNewFile();
