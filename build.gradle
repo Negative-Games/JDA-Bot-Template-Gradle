@@ -6,7 +6,7 @@ plugins {
 // Dependency Versions
 def jda = "v5.0.0-beta.6"
 def lombok = "1.18.22"
-def jetbrains = "22.0.0"
+def jetbrains = "24.0.1"
 def framework = "1.0.0-ALPHA-9"
 
 // Project Details
