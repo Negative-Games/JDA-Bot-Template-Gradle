@@ -23,7 +23,6 @@ repositories {
 
     // Negative Games Repository
     maven { url 'https://repo.negative.games/repository/maven-public/' }
-    maven { url 'https://m2.dv8tion.net/releases' }
 }
 
 dependencies {
