@@ -17,7 +17,7 @@ public class Main {
         Gson gson = new GsonBuilder().setPrettyPrinting().serializeNulls().create();
         if (!file.exists()) {
             file.getParentFile().mkdirs();
-            
+
             // File exists, which means the token is invalid
             try {
                 file.createNewFile();
@@ -34,7 +34,6 @@ public class Main {
                 throw new RuntimeException(e);
             }
 
-            token = config.getToken();
         } else {
             try (Reader reader = new FileReader(file)) {
                 config = gson.fromJson(reader, TokenConfig.class);
@@ -43,8 +42,8 @@ public class Main {
                 throw new RuntimeException(e);
             }
 
-            token = config.getToken();
         }
+        token = config.getToken();
 
         // Token is null, which means the token is invalid
         // So we will prompt the user in console to input their token to be
