@@ -18,26 +18,21 @@ repositories {
     // Negative Games Repository
     maven { url 'https://repo.negative.games/repository/maven-public/' }
 
-    // JitPack
-    maven { url 'https://jitpack.io' }
 }
 
 dependencies {
     // Annotations
-    compileOnly("org.projectlombok:lombok:1.18.24")
-    annotationProcessor("org.projectlombok:lombok:1.18.24")
+    compileOnly('org.projectlombok:lombok:1.18.26')
+    annotationProcessor('org.projectlombok:lombok:1.18.26')
 
-    compileOnly("org.jetbrains:annotations:23.1.0")
-    annotationProcessor("org.jetbrains:annotations:23.1.0")
+    compileOnly('org.jetbrains:annotations:24.0.1')
+    annotationProcessor('org.jetbrains:annotations:24.0.1')
 
     // Gson
-    implementation("com.google.code.gson:gson:2.8.9")
+    implementation('com.google.code.gson:gson:2.10.1')
 
     // JDA
     implementation("net.dv8tion:JDA:5.0.0-beta.6")
-
-    // Simple YML
-    implementation("me.carleslc.Simple-YAML:Simple-Yaml:1.8.3")
 
     // Framework / Backend
     implementation("games.negative.framework:discord-framework:1.0.0-ALPHA-9")
