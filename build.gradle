@@ -63,6 +63,7 @@ processResources {
     filteringCharset 'UTF-8'
 }
 
+// Makes JAR file executable
 jar {
     manifest {
         attributes 'Main-Class': "$main"
