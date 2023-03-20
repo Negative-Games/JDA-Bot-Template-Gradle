@@ -3,12 +3,6 @@ plugins {
     id "com.github.johnrengelman.shadow" version "7.1.2"
 }
 
-// Dependency Versions
-def jda = "v5.0.0-beta.6"
-def lombok = "1.18.26"
-def jetbrains = "24.0.1"
-def framework = "1.0.0-ALPHA-9"
-
 // Project Details
 def main = "games.negative.bot.main.Main"
 def id = "Bot"
@@ -27,17 +21,17 @@ repositories {
 
 dependencies {
     // Annotations
-    compileOnly("org.projectlombok:lombok:$lombok")
-    annotationProcessor("org.projectlombok:lombok:$lombok")
+    compileOnly("org.projectlombok:lombok:1.18.24")
+    annotationProcessor("org.projectlombok:lombok:1.18.24")
 
-    compileOnly("org.jetbrains:annotations:$jetbrains")
-    annotationProcessor("org.jetbrains:annotations:$jetbrains")
+    compileOnly("org.jetbrains:annotations:23.1.0")
+    annotationProcessor("org.jetbrains:annotations:23.1.0")
 
     // JDA
-    implementation("net.dv8tion:JDA:$jda")
+    implementation("net.dv8tion:JDA:5.0.0-beta.6")
 
     // Framework / Backend
-    implementation("games.negative.framework:discord-framework:$framework")
+    implementation("games.negative.framework:discord-framework:1.0.0-ALPHA-9")
 }
 
 def targetJavaVersion = 17
