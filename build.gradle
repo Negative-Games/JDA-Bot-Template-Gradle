@@ -1,0 +1,70 @@
+plugins {
+    id 'java'
+    id "com.github.johnrengelman.shadow" version "7.1.2"
+}
+
+def id = "Bot"
+def group = 'games.negative.bot'
+def version = '1.0.0-SNAPSHOT'
+repositories {
+    mavenCentral()
+
+    // Sonatype Repository
+    maven { url = 'https://oss.sonatype.org/content/groups/public/' }
+
+    // Negative Games Repository
+    maven { url 'https://repo.negative.games/repository/maven-public/' }
+
+}
+
+dependencies {
+    // Annotations
+    compileOnly 'org.projectlombok:lombok:1.18.22'
+    compileOnly 'org.jetbrains:annotations:22.0.0'
+
+    // Apis
+    compileOnly 'org.spigotmc:spigot-api:1.8.8-R0.1-SNAPSHOT'
+    compileOnly 'com.gitlab.ruany:LiteBansAPI:0.3.5'
+    compileOnly 'org.geysermc.floodgate:api:2.0-SNAPSHOT'
+
+    // Framework / Backend
+    implementation 'games.negative.framework:minecraft-framework:3.2.3'
+
+}
+
+def targetJavaVersion = 19
+java {
+    def javaVersion = JavaVersion.toVersion(targetJavaVersion)
+    sourceCompatibility = javaVersion
+    targetCompatibility = javaVersion
+    if (JavaVersion.current() < javaVersion) {
+        toolchain.languageVersion = JavaLanguageVersion.of(targetJavaVersion)
+    }
+}
+
+tasks.withType(JavaCompile).configureEach {
+    if (targetJavaVersion >= 10 || JavaVersion.current().isJava10Compatible()) {
+        options.release = targetJavaVersion
+    }
+}
+
+processResources {
+    def props = [version: version]
+    inputs.properties props
+    filteringCharset 'UTF-8'
+}
+
+tasks {
+    build {
+        dependsOn(shadowJar)
+    }
+}
+
+shadowJar {
+    archiveBaseName.set("${id}-${version}")
+    archiveClassifier.set("")
+    archiveVersion.set("")
+
+    // Shade "games.negative.framework" into "games.negative.punishments.libs.framework"
+    relocate "games.negative.framework", "${group}.libs.framework"
+}
