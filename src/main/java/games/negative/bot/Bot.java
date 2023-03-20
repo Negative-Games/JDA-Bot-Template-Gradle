@@ -8,10 +8,7 @@ import java.util.List;
 
 public class Bot extends DiscordBot {
 
-    public Bot() {
-
-
-        String token = "TOKEN";
+    public Bot(String token) {
 
         List<GatewayIntent> intents = List.of(
                 GatewayIntent.MESSAGE_CONTENT,
