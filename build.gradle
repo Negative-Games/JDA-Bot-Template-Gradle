@@ -38,7 +38,7 @@ dependencies {
     implementation("net.dv8tion:JDA:5.0.0-beta.6")
 
     // Framework / Backend
-    implementation("games.negative.framework:discord-framework:1.0.0-ALPHA-9")
+    implementation("games.negative.framework:discord-framework:1.0.0-ALPHA-10.1")
 }
 
 def targetJavaVersion = 17
